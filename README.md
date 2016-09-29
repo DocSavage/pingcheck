@@ -7,3 +7,8 @@ Command-line logging of HTTP requests to list of urls
     
           -spacing     =number  Seconds between pings.
       -h, -help       (flag)    Show help message
+
+## Install
+
+    % go build
+    % ./pingcheck http://foo.bar.com  http://foo2.bar.com
