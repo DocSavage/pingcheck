@@ -61,11 +61,13 @@ func main() {
 
 func doPings() {
 	for _, url := range flag.Args() {
+		startT := time.Now()
 		resp, err := http.Get(url)
 		if err != nil {
 			log.Printf("ERROR on %q --> %v\n", url, err)
 		} else {
-			log.Printf("%q: %s\n", url, resp.Status)
+			log.Printf("%q: %s (%s)\n", url, resp.Status, time.Since(startT))
+			resp.Body.Close()
 		}
 	}
 }
